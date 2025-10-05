@@ -6,7 +6,7 @@ const app = express();
 app.use(express.json());
 
 // === FIREBASE SETUP ===
-import serviceAccount from "./serviceAccountKey.json" assert { type: "json" };
+const serviceAccount = JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT);
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount)
 });
